@@ -17,6 +17,19 @@
         <tr><th>Titre</th><th>Genre</th><th>Année</th><th>Note</th></tr>
         <?php
 
+     require("connexion.php");
+        $resultat = $base->query('SELECT titre, genre, annee, note FROM jeu');
+        while ($donnees = $resultat->fetch()) {
+        ?>
+            <tr>
+                <th><?php echo $donnees['titre']; ?></th>
+                <th><?php echo $donnees['genre']; ?></th>
+                <th><?php echo $donnees['annee']; ?></th>
+                <th><?php echo $donnees['note'] . "/20"; ?></th>
+
+
+            </tr>
+            <?php }
         ?>
     </table>
 </body>

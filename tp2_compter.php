@@ -14,6 +14,16 @@
 </head>
 <body>
 <?php
+ 
+require("connexion.php");
+
+$sql = "SELECT COUNT(*) FROM jeu";
+$stmt = $base->query($sql);
+$nbJeux = $stmt->fetchColumn();
+
+echo "Il y a " . $nbJeux . " jeux dans la ludothèque.";
+
+
 
 ?>
 </body>

@@ -29,7 +29,26 @@
     </form>
 
 <?php
+    require("connexion.php");
 
+    if (isset($_GET['genre'])) {
+        $sql = "SELECT titre, note FROM jeu WHERE genre = :genre";
+        $stmt = $base->prepare($sql);
+
+        $stmt->execute([
+            'genre' => $_GET['genre']
+        ]);
+
+        $jeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        echo "<p>" . count($jeux) . " jeu(x) trouvé(s) :</p>";
+
+        echo "<ul>";
+        foreach ($jeux as $jeu) {
+            echo "<li>" . htmlspecialchars($jeu['titre']) . " : " . htmlspecialchars($jeu['note']) . "/20</li>";
+        }
+        echo "</ul>";
+    }
 ?>
 </body>
 </html>

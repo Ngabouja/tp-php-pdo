@@ -18,6 +18,7 @@
 <body>
     <h1>Ajouter un jeu</h1>
 
+    
     <form method="post">
         <p>Titre : <input type="text" name="titre" required></p>
         <p>Genre : <input type="text" name="genre" required></p>
@@ -27,6 +28,27 @@
     </form>
 
 <?php
+
+    require("connexion.php");
+
+        $sql = "INSERT INTO JEU (titre, genre, annee , note) VALUES (:titre, :genre, :annee ,:note)";
+        $stmt = $base->prepare($sql);
+
+    if (isset($_POST['titre']) ) {
+
+        $stmt->execute(array(
+            'titre' => $_POST["titre"],
+            'genre' => $_POST["genre"],
+            'annee' => $_POST["annee"] ,
+            'note' => $_POST["note"] 
+            ));
+
+            $id = $base -> lastInsertId();
+
+            echo "Jeu ajouté ! Son id est : ".$id;
+            echo "</br> <a href='tp3_liste.php'>lien tu jeux</a>";
+    }
+
 
 ?>
 </body>

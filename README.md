@@ -18,13 +18,13 @@ Autre méthode : ouvrez l'onglet **SQL**, collez-y le contenu de `base_ludothequ
 
 ### Structure de la table `jeu`
 
-| Colonne | Type        | Description                     |
-|---------|-------------|---------------------------------|
-| id      | INT         | Identifiant (auto-incrémenté)   |
-| titre   | VARCHAR(50) | Titre du jeu                    |
-| genre   | VARCHAR(20) | Action, Aventure, Course...     |
-| annee   | INT         | Année de sortie                 |
-| note    | INT         | Note sur 20                     |
+| Colonne | Type        | Description                   |
+| ------- | ----------- | ----------------------------- |
+| id      | INT         | Identifiant (auto-incrémenté) |
+| titre   | VARCHAR(50) | Titre du jeu                  |
+| genre   | VARCHAR(20) | Action, Aventure, Course...   |
+| annee   | INT         | Année de sortie               |
+| note    | INT         | Note sur 20                   |
 
 ## 2. Récupérer le TP avec Git
 
@@ -96,15 +96,16 @@ Les fois suivantes, un simple `git push` suffit.
 ## 3. Ouvrir les pages du TP
 
 Ouvrez une page dans le navigateur, par exemple :
+
 - MAMP : http://localhost:8888/tp-php-pdo/tp1_connexion.php
 - WAMP / XAMPP : http://localhost/tp-php-pdo/tp1_connexion.php
 
 Identifiants MySQL :
 
-| Serveur       | Utilisateur | Mot de passe |
-|---------------|-------------|--------------|
-| MAMP          | `root`      | `root`       |
-| WAMP / XAMPP  | `root`      | *(vide)*     |
+| Serveur      | Utilisateur | Mot de passe |
+| ------------ | ----------- | ------------ |
+| MAMP         | `root`      | `root`       |
+| WAMP / XAMPP | `root`      | _(vide)_     |
 
 ## 4. Consignes
 
@@ -115,14 +116,14 @@ Identifiants MySQL :
 - Testez vos requêtes SQL dans l'onglet **SQL** de phpMyAdmin avant de les écrire en PHP.
 - Dès qu'une valeur vient de l'utilisateur (formulaire, URL), utilisez une **requête préparée** (`prepare()` + `execute()`).
 
-| TP | Fichier                      | Thème                                   |
-|----|------------------------------|-----------------------------------------|
-| 1  | `tp1_connexion.php`          | Se connecter à la base                  |
-| 2  | `tp2_compter.php`            | Compter les jeux                        |
-| 3  | `tp3_liste.php`              | Lister les jeux dans un tableau         |
-| 4  | `tp4_tri_filtre.php`         | Trier et filtrer                        |
-| 5  | `tp5_ajout_exec.php`         | Ajouter, modifier, supprimer avec exec()|
-| 6  | `tp6_recherche.php`          | Recherche avec une requête préparée     |
-| 7  | `tp7_ajout_formulaire.php`   | Formulaire d'ajout                      |
-| 8  | `tp8_modifier_supprimer.php` | Modifier et supprimer                   |
-| 9  | `tp9_bonus_ludotheque.php`   | Bonus : mini-application                |
+| TP  | Fichier                      | Thème                                    |
+| --- | ---------------------------- | ---------------------------------------- |
+| 1   | `tp1_connexion.php`          | Se connecter à la base                   |
+| 2   | `tp2_compter.php`            | Compter les jeux                         |
+| 3   | `tp3_liste.php`              | Lister les jeux dans un tableau          |
+| 4   | `tp4_tri_filtre.php`         | Trier et filtrer                         |
+| 5   | `tp5_ajout_exec.php`         | Ajouter, modifier, supprimer avec exec() |
+| 6   | `tp6_recherche.php`          | Recherche avec une requête préparée      |
+| 7   | `tp7_ajout_formulaire.php`   | Formulaire d'ajout                       |
+| 8   | `tp8_modifier_supprimer.php` | Modifier et supprimer                    |
+| 9   | `tp9_bonus_ludotheque.php`   | Bonus : mini-application                 |

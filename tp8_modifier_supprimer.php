@@ -19,6 +19,38 @@
 <body>
 <?php
 
+    require("connexion.php");
+
+    if (isset($_POST['id_modif'], $_POST['note'])) {
+        $sql = "UPDATE jeu SET note = :note WHERE id = :id";
+        $stmt = $base->prepare($sql);
+        $stmt->execute([
+            'note' => $_POST['note'],
+            'id'   => $_POST['id_modif']
+        ]);
+
+        if ($stmt->rowCount() > 0) {
+            echo "<p>Note modifiée.</p>";
+        } else {
+            echo "<p>Aucun jeu modifié.</p>";
+        }
+    }
+
+    if (isset($_POST['id_suppr'])) {
+        $sql = "DELETE FROM jeu WHERE id = :id";
+        $stmt = $base->prepare($sql);
+        $stmt->execute([
+            'id' => $_POST['id_suppr']
+        ]);
+
+        if ($stmt->rowCount() > 0) {
+            echo "<p>Jeu supprimé.</p>";
+        } else {
+            echo "<p>Aucun jeu supprimé.</p>";
+        }
+    }    
+
+
 ?>
 
     <h2>Modifier une note</h2>
@@ -35,8 +67,24 @@
     </form>
 
     <h2>Liste des jeux</h2>
-<?php
+     <table border="1">
+        <tr><th>Titre</th><th>Genre</th><th>Année</th><th>Note</th></tr>
+        <?php
 
-?>
+        $resultat = $base->query('SELECT titre, genre, annee, note FROM jeu');
+        while ($donnees = $resultat->fetch()) {
+        ?>
+        
+            <tr>
+                <th><?php echo $donnees['titre']; ?></th>
+                <th><?php echo $donnees['genre']; ?></th>
+                <th><?php echo $donnees['annee']; ?></th>
+                <th><?php echo $donnees['note'] . "/20"; ?></th>
+
+
+            </tr>
+            <?php }
+        ?>
+    </table>
 </body>
 </html>
